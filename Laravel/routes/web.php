@@ -9,6 +9,8 @@ use App\Http\Controllers\UtilityController;
 use App\Http\Controllers\DiabetesController;
 use App\Http\Controllers\GuessGameController;
 use App\Http\Controllers\TicTacToeController;
+use App\Http\Controllers\SpamDetectionController;
+use App\Http\Controllers\EcommerceDetectionController;
 Route::get('/contact', [ContactController::class, 'showForm']);
 Route::post('/send-email', [ContactController::class, 'sendEmail'])->name('send.email');
 
@@ -64,3 +66,20 @@ Route::post('/restart', [MazeController::class, 'restartGame']);  // إعادة 
 
 Route::get('/utility', [UtilityController::class, 'getGameState']);
 Route::post('/utility_move', [UtilityController::class, 'moveAgent']);
+
+
+
+//////////////////////////   SpamDetectionController   /////////////////////
+
+Route::get('/spam-detection', [SpamDetectionController::class, 'showForm'])->name('spam-detection');
+Route::post('/spam-detection', [SpamDetectionController::class, 'detectSpam'])->name('detect-spam');
+
+
+////////////////////////       EcommerceDetectionController              ///////////////////////////  ///////////
+
+Route::get('/ecommerce-detection', function () {
+    return view('ecommerce.ecommerce_detection');  // لعرض النموذج
+});
+
+Route::post('/detect-spam', [EcommerceDetectionController::class, 'detectSpam'])->name('detect-ecommerce');
+
