@@ -10,6 +10,7 @@ use App\Http\Controllers\DiabetesController;
 use App\Http\Controllers\GuessGameController;
 use App\Http\Controllers\TicTacToeController;
 use App\Http\Controllers\SpamDetectionController;
+use App\Http\Controllers\DigitRecognitionController;
 use App\Http\Controllers\EcommerceDetectionController;
 Route::get('/contact', [ContactController::class, 'showForm']);
 Route::post('/send-email', [ContactController::class, 'sendEmail'])->name('send.email');
@@ -83,3 +84,8 @@ Route::get('/ecommerce-detection', function () {
 
 Route::post('/detect-spam', [EcommerceDetectionController::class, 'detectSpam'])->name('detect-ecommerce');
 
+
+////////////////////////   ia    /////////
+
+Route::get('/upload', [DigitRecognitionController::class, 'showForm']);
+Route::post('/predict-image', [DigitRecognitionController::class, 'predictimage']);
